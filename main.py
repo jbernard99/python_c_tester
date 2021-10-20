@@ -23,5 +23,4 @@ if __name__ == "__main__":
 	compile()
 	run_exec()
 	print("Done!")
-	print("Bonjour je suis le 2e print hahahaha")
-	print("Allez zy-va teddy")
+	print("Hello c'est teddy!")
