@@ -22,3 +22,4 @@ def run_exec():
 if __name__ == "__main__":
 	compile()
 	run_exec()
+	print("Done!")
