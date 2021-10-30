@@ -1,2 +1,2 @@
 #include<stdio.h>
-int main(){int len = printf("Allo %c %d", 'q', 42);printf("::%d", len);return (0);}
+int main(){int len = 0;len=printf("42 Quebec");printf("::%d", len);printf("|||");len=printf("42 Quebec");printf("::%d", len);return (0);}

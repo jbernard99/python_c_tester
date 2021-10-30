@@ -1,7 +1,25 @@
 import printf_test
 
+# TESTS = [
+# 	["42 Quebec"],
+# 	["%d Quebec", 42],
+# 	["%d %x %X %c %s", 42, 42, 42,'c', "42"],
+# 	["%c Quebec", '4']
+# ]
+
+TESTS = [
+	'''"42 Quebec"''',
+	# '''"%d Quebec", 42''',
+	# '''"%d %x %X %c %s", 42, 42, 42,'c', "42"''',
+	# """"%c Quebec", '4'"""
+]
+
+tests_format = julienfunction(TESTS)
+
+for test in tests_format:
+	print(test)
+	printf_test.PrintfTest(test)
+# printf_test.PrintfTest("Allo %c %d", 'q', 42);
+
 if __name__ == "__main__":
-	return_ = printf_test.PrintfTest("printf", "Allo %c %d", 'q', 42)
-	split = str(return_).split("::")
-	split[1] = int(split[1])
-	print(split)
+	pass

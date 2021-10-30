@@ -11,22 +11,25 @@ GCC = [
 	"-Wextra",
 ] + C_FILENAME
 
-START = "#include<stdio.h>\nint main(){"
+START = "#include<stdio.h>\nint main(){int len = 0;"
 END = "return (0);}"
-LEN = "int len = "
+SEP = 'printf("|||");'
 P_LEN = 'printf("::%d", len);'
 
 class PrintfTest:
-	def __init__(self, func, *args):
-		self.format = f'("{str(args[0])}"'
+	def __init__(self, *args):
+		self.format = f'({str(args[0])}'
 		self.args = [arg for arg in args[1:]]
-		self.func = func
 		self._format()
+		self.func = "len=printf"
+		self.funccomp = "len=printf"
 		self._write_main()
 		self.compile()
 		self.return_ = self.run_exec()
+		self.split = str(self.return_).split("|||")
+		print(self.split)
 
-	def _format(self):
+	def _format(self, *args):
 		for arg in self.args:
 			if (isinstance(arg, int)):
 				self.format += f", {str(arg)}"
@@ -39,8 +42,9 @@ class PrintfTest:
 	def _write_main(self):
 		global START
 		global END
+		global SEP
 		with open("main.c", "w") as f:
-			f.write(f"{START}{LEN}{self.func}{self.format}{P_LEN}{END}")
+			f.write(f"{START}{self.func}{self.format}{P_LEN}{SEP}{self.funccomp}{self.format}{P_LEN}{END}")
 
 	def compile(self):
 		global GCC
