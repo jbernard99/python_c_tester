@@ -11,7 +11,7 @@ GCC = [
 	"-Wextra",
 ] + C_FILENAME
 
-START = "#include<stdio.h> \nint main(){"
+START = "#include<stdio.h>\nint main(){"
 END = "return (0);}"
 
 def compile():
