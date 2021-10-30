@@ -24,8 +24,7 @@ class PrintfTest:
 		self._format()
 		self._write_main()
 		self.compile()
-		self.result = self.run_exec()
-		print(self.result)
+		self.return_ = self.run_exec()
 
 	def _format(self):
 		for arg in self.args:
@@ -50,7 +49,10 @@ class PrintfTest:
 	def run_exec(self):
 		global EXEC_FILENAME
 		string = subprocess.run(["./" + EXEC_FILENAME], capture_output=True)
-		return(f">> {str(string.stdout)[2:-1]}")
+		return(f"{str(string.stdout)[2:-1]}")
+	
+	def __repr__(self):
+		return(self.return_)
 
 if __name__ == "__main__":
 	string = format("Allo %c %d", 'q', 42)
