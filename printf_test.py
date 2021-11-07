@@ -27,7 +27,7 @@ class PrintfTest:
 		self.compile()
 		self.return_ = self.run_exec()
 		self.split = str(self.return_).split("|||")
-		print(self.split)
+		self.compare()
 
 	def _format(self, *args):
 		for arg in self.args:
@@ -57,6 +57,12 @@ class PrintfTest:
 	
 	def __repr__(self):
 		return(self.return_)
+	
+	def compare(self):
+		if (self.split[0] == self.split[1]):
+			print("PASSED")
+		else:
+			print(f"expected: {self.splt[0]} - returned: {self.split[1]}")
 
 if __name__ == "__main__":
 	string = format("Allo %c %d", 'q', 42)
